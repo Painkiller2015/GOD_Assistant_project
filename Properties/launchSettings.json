@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "GOD_Assistant": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}

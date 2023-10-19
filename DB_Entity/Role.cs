@@ -16,5 +16,11 @@ namespace GOD_Assistant.DB_Entity
         public ulong DiscordID { get; set; }
         public string Name { get; set; }
         public bool IsAdmin { get; set; }
+        public Role(ulong discordID, string name, bool isAdmin)
+        {
+            DiscordID = discordID;
+            Name = name;
+            IsAdmin = isAdmin;
+        }
     }
 }

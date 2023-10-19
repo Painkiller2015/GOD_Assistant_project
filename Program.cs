@@ -10,12 +10,7 @@ namespace GOD_Assistant
     {
         static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-            //Test();
-            //while (true) 
-            //{ 
-            //    Thread.Sleep(100);
-            //}
+            CreateHostBuilder(args).Build().Run();                        
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)

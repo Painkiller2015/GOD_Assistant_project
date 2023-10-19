@@ -1,4 +1,5 @@
 ﻿
+using DSharpPlus.EventArgs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace GOD_Assistant.DB_Entity
     [PrimaryKey("Id")]
     [Table("ChatLog")]
     public class ChatLog
-    {
+    {        
         public int Id { get; set; }
         public int GuildId { get; set; }
         public Guild Guild { get; set; }

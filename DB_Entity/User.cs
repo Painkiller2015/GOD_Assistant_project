@@ -13,8 +13,14 @@ namespace GOD_Assistant.DB_Entity
     public class User
     {        
         public int Id { get; set; }
-        public ulong discordID { get; set; }
-        public string discordName { get; set; }
-        public string gameName { get; set; }
+        public ulong DiscordID { get; set; }
+        public string DiscordName { get; set; }
+        public string? GameName { get; set; }
+        public User(ulong discordID, string discordName, string? gameName = null)
+        {
+            DiscordID = discordID;
+            DiscordName = discordName;
+            GameName = gameName;
+        }
     }
 }

@@ -5,20 +5,18 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using GOD_Assistant.Commands;
 using static GOD_Assistant.Commands.MainCommand;
-using Newtonsoft.Json;
 using Microsoft.Extensions.DependencyInjection;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using GOD_Assistant.Config;
-using Microsoft.Extensions.Logging;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using GOD_Assistant.Events;
+
 
 namespace GOD_Assistant
 {
     public class Worker : BackgroundService
     {
-        public DiscordClient discord;
+        private static DiscordClient discord;
         private CommandsNextExtension commands;
         private InteractivityExtension interactivity;
         private ServiceCollection services;
@@ -28,10 +26,7 @@ namespace GOD_Assistant
             SubscribeToDiscordEvents();
             SubscribeToTimeEvents();
 
-            //MessageQueue mq = MessageQueue.GetObject(); // очередь сообщений
-            //mq.StartQueue();
-
-            discord.ConnectAsync();
+            discord.ConnectAsync();                     
         }
         private DiscordClient InitDiscordBot()
         {
@@ -82,6 +77,8 @@ namespace GOD_Assistant
 
             discord.ComponentInteractionCreated += DiscordEvents.Discord_ComponentInteractionCreated;
 
+
+
             //discord.MessageUpdated += _discord_MessageUpdated;
             //discord.MessageReactionAdded += _discord_MessageReactionAdded; // Подключение реакций
             //discord.GuildMemberAdded += _discord_GuildMemberAdded;
@@ -90,17 +87,13 @@ namespace GOD_Assistant
         private void SubscribeToTimeEvents()
         {
             System.Timers.Timer aTimer = new();
-
             int interval60Minutes = 60 * 60 * 1000;
-
             aTimer.Interval = interval60Minutes;
-            
+
             //aTimer.Elapsed += TimeEvent;            
             aTimer.AutoReset = true;
-            
             aTimer.Enabled = true;
         }
-
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -108,8 +101,7 @@ namespace GOD_Assistant
             {
                 await Task.Delay(60 * 60 * 1000, stoppingToken);
             }
-        }
-
+        }        
 
         //private async Task Discord_VoiceStateUpdate(DiscordClient sender, DSharpPlus.EventArgs.VoiceStateUpdateEventArgs e)
         //{

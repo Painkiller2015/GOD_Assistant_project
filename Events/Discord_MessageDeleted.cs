@@ -1,8 +1,5 @@
-﻿using DSharpPlus;
-using DSharpPlus.Entities;
-using DSharpPlus.EventArgs;
-using GOD_Assistant.DB_Entity;
-using GOD_Assistant.DiscordObject;
+﻿using DSharpPlus.EventArgs;
+using DSharpPlus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +10,9 @@ namespace GOD_Assistant.Events
 {
     static partial class DiscordEvents
     {
+        public static async Task Discord_MessageDeleted(DiscordClient sender, MessageDeleteEventArgs e)
+        {
 
+        }
     }
 }

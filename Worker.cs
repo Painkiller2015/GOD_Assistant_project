@@ -12,6 +12,7 @@ using GOD_Assistant.Config;
 using GOD_Assistant.Events;
 
 
+
 namespace GOD_Assistant
 {
     public class Worker : BackgroundService
@@ -91,7 +92,9 @@ namespace GOD_Assistant
             int interval60Minutes = 60 * 60 * 1000;
             aTimer.Interval = interval60Minutes;
 
-            //aTimer.Elapsed += TimeEvent;            
+            aTimer.Elapsed += TimeEvents.Time_TopDamageResult;
+            aTimer.Elapsed += TimeEvents.Time_CommunityActiveResult;
+
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
         }

@@ -76,6 +76,7 @@ namespace GOD_Assistant
             discord.ModalSubmitted += DiscordEvents.Discord_ModalSubmitted;
 
             discord.ComponentInteractionCreated += DiscordEvents.Discord_ComponentInteractionCreated;
+            discord.GuildDownloadCompleted += DiscordEvents.Discord_GuildDownloadCompleted;
 
 
 

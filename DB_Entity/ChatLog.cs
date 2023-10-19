@@ -22,7 +22,7 @@ namespace GOD_Assistant.DB_Entity
         public ulong MessageDiscordId { get; set; }
         public long Timestamp { get; set; }
         public ulong ChatDiscordId { get; set; }
-        public string  Message { get; set; }
+        public string Message { get; set; }
         public bool IsDeleted { get; set; }
         public bool HasAttachment { get; set; }
     }

@@ -29,7 +29,6 @@ namespace GOD_Assistant.Commands
             Console.WriteLine("tut1");
 
             //await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource, null);
-
             var a = ctx.Member.ModifyAsync(user => user.Nickname = "new");
 
 
@@ -61,7 +60,6 @@ namespace GOD_Assistant.Commands
 
                 fullInfo += item.Name + " : " + item.GetValue(exUser) + "\n";
             }
-
             await Console.Out.WriteLineAsync(fullInfo);
             await ctx.Channel.SendMessageAsync(fullInfo);
         }
@@ -69,7 +67,6 @@ namespace GOD_Assistant.Commands
         [SlashCommandGroup("Prime", "Prime commands")]
         public class SlashCommands : ApplicationCommandModule
         {
-
             [SlashCommand("test", "Check this")]
             public async Task BeS(InteractionContext ctx)
             {
@@ -95,7 +92,7 @@ namespace GOD_Assistant.Commands
                         message = "Все офицеры вели себя плохо";
                         break;
                 }
-                ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent(message));
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent(message));
             }
 
             //[SlashCommand("test", "Check this")]
@@ -208,9 +205,6 @@ namespace GOD_Assistant.Commands
             //                                                            .AddComponents(elements);
             //    return adminPanel;
             //}
-
         }
-
-
     }
 }

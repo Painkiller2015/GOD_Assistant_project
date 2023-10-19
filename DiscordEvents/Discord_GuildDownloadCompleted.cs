@@ -17,7 +17,7 @@ namespace GOD_Assistant.Events
     {
         public static async Task Discord_GuildDownloadCompleted(DiscordClient sender, GuildDownloadCompletedEventArgs e)
         {
-            await UpdateDataBase_Users(sender);
+            //await UpdateDataBase_Users(sender);
         }
         private static async Task UpdateDataBase_Users(DiscordClient discord)
         {
@@ -30,7 +30,11 @@ namespace GOD_Assistant.Events
                     User newUser = new (member.Key, member.Value.DisplayName);
 
                     if (!db.Users.Any(user => user.DiscordID == newUser.DiscordID))
+                    {
                         db.Users.Add(newUser);
+                        
+                    }
+                        
                 }
             }
             db.SaveChanges();

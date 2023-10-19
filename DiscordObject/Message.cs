@@ -20,22 +20,22 @@ namespace GOD_Assistant.DiscordObject
         public Message()
         {
         }
-        public async Task<DiscordMessage> SendMessageWithQ()
-        {
-            StaticValues sv = StaticValues.Instance();
-            sv.mQueue.MessageToQueue(this, MessageType.Default);
-            return DMessage;
-        }
-        public void DeleteMessage()
-        {
-            StaticValues sv = StaticValues.Instance();
-            sv.mQueue.MessageToQueue(this, MessageType.RecipientRemove);
-        }
-        public void UpdateMessage()
-        {
-            //OldMessage = BuildMessage();
-            StaticValues sv = StaticValues.Instance();
-            sv.mQueue.MessageToQueue(this, MessageType.RecipientAdd);
-        }
+        //public async Task<DiscordMessage> SendMessageWithQ()
+        //{
+        //    StaticValues sv = StaticValues.Instance();
+        //    sv.mQueue.MessageToQueue(this, MessageType.Default);
+        //    return DMessage;
+        //}
+        //public void DeleteMessage()
+        //{
+        //    StaticValues sv = StaticValues.Instance();
+        //    sv.mQueue.MessageToQueue(this, MessageType.RecipientRemove);
+        //}
+        //public void UpdateMessage()
+        //{
+        //    //OldMessage = BuildMessage();
+        //    StaticValues sv = StaticValues.Instance();
+        //    sv.mQueue.MessageToQueue(this, MessageType.RecipientAdd);
+        //}
     }
 }

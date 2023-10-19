@@ -9,6 +9,9 @@ namespace GOD_Assistant.Events
         public static async Task Discord_MessageCreated(DiscordClient sender, MessageCreateEventArgs e)
         {
             //await LogMessageCreate(e);
+
+            if (sender == null) { }
+
         }
         private static async Task LogMessageCreate(MessageCreateEventArgs e)
         {

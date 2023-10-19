@@ -94,6 +94,14 @@ namespace GOD_Assistant.Commands
                 }
                 await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent(message));
             }
+            [SlashCommand("SendResult", "Send Damager")]
+            public async Task CalcDamagerScore(InteractionContext ctx, [Option("replay", "replay")]  DiscordAttachment attacment)
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("я съел"));
+            }
 
             //[SlashCommand("test", "Check this")]
             //public async Task BeS(InteractionContext ctx)

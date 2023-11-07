@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GOD_Assistant.DB_Entity
 {
-
     [PrimaryKey("Id")]
     [Table("Attachments")]
     public class Attachment
@@ -17,11 +16,12 @@ namespace GOD_Assistant.DB_Entity
         public ulong MessageId { get; set; }
         public string Type { get; set; }
         public string URL { get; set; }
+        public Attachment() { }
         public Attachment(ulong messageId, string type, string url)
-        {        
+        {
             MessageId = messageId;
             Type = type;
             URL = url;
-        }                 
+        }
     }
 }

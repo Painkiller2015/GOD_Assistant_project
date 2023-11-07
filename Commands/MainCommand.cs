@@ -17,6 +17,7 @@ using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.Interactivity;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using GOD_Assistant.OnStar;
 
 namespace GOD_Assistant.Commands
 {
@@ -29,7 +30,7 @@ namespace GOD_Assistant.Commands
             Console.WriteLine("tut1");
 
             //await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource, null);
-            var a = ctx.Member.ModifyAsync(user => user.Nickname = "new");
+            
 
 
 

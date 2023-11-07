@@ -10,6 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.EntityFrameworkCore;
 using Polly;
 using System.Xml;
+using GOD_Assistant.OnStar;
 
 namespace GOD_Assistant.Events
 {
@@ -17,27 +18,9 @@ namespace GOD_Assistant.Events
     {
         public static async Task Discord_GuildDownloadCompleted(DiscordClient sender, GuildDownloadCompletedEventArgs e)
         {
-            //await UpdateDataBase_Users(sender);
+            SyncData syncData = new(sender);
+            syncData.SyncGuildsUsers();
         }
-        private static async Task UpdateDataBase_Users(DiscordClient discord)
-        {
-            DBConnect db = new();
 
-            foreach (var guild in discord.Guilds)
-            {
-                foreach (var member in guild.Value.Members)
-                {
-                    User newUser = new (member.Key, member.Value.DisplayName);
-
-                    if (!db.Users.Any(user => user.DiscordID == newUser.DiscordID))
-                    {
-                        db.Users.Add(newUser);
-                        
-                    }
-                        
-                }
-            }
-            db.SaveChanges();
-        }
     }
 }

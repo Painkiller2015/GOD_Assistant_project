@@ -15,12 +15,24 @@ namespace GOD_Assistant.DB_Entity
         public int Id { get; set; }
         public ulong DiscordID { get; set; }
         public string DiscordName { get; set; }
+        public string ServerName { get; set; }
         public string? GameName { get; set; }
-        public User(ulong discordID, string discordName, string? gameName = null)
+        public DateTime Birthday { get; set; }
+        public DateTime JoinedInClan { get; set; }
+        public int LeaveCount { get; set; }        
+        public List<Guild_User> User_Guid { get; set; }
+        
+        public User(ulong discordID, string discordName, string serverName, string? gameName = null)
         {
             DiscordID = discordID;
             DiscordName = discordName;
+            ServerName = serverName;
             GameName = gameName;
+           
+        }
+        public User()
+        {
+
         }
     }
 }

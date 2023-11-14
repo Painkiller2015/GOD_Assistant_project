@@ -19,6 +19,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using GOD_Assistant.OnStar;
 
+
+//TimeCommand: CommandGroup
 namespace GOD_Assistant.Commands
 {
     //[SlashCommandGroup("slash", "slash commands")]
@@ -29,20 +31,7 @@ namespace GOD_Assistant.Commands
         {
             Console.WriteLine("tut1");
 
-            //await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource, null);
-            
-
-
-
-            //await ctx.Channel.SendMessageAsync(
-
-            //    $"""
-            //        you 
-            //        {exUser}
-
-            //    """
-            //    );
-            // await ctx.DeleteResponseAsync();
+            //await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource, null);           
 
         }
         [Command("T2")]
@@ -96,33 +85,36 @@ namespace GOD_Assistant.Commands
                 await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent(message));
             }
             [SlashCommand("SendResult", "Send Damager")]
-            public async Task CalcDamagerScore(InteractionContext ctx, [Option("replay", "replay")]  DiscordAttachment attacment)
-            {
-                await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
-
-
+            public async Task CalcDamagerScore(InteractionContext ctx, [Option("replay", "replay")] DiscordAttachment attacment)
+            {                
                 await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("я съел"));
             }
 
-            //[SlashCommand("test", "Check this")]
-            //public async Task BeS(InteractionContext ctx)
-            //{
-            //    await Console.Out.WriteLineAsync("sleshT1");
-            //    await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("Success!"));
-
-            [SlashCommand("Admin", "AdminPanel")]
+            [SlashCommand("Регистрация", "Заявка в клан")]
             //[RequirePermissions(Permissions.Administrator)]
-            public async Task RegPanel(InteractionContext ctx)
+            public async Task ClanApplicationPanel(InteractionContext ctx)
             {
-                DiscordInteractionResponseBuilder builder = CreateRequestPanel();
+                DiscordInteractionResponseBuilder builder = CreateClanApplicationPanel();
                 await ctx.Interaction.CreateResponseAsync(InteractionResponseType.Modal, builder);
-                var response = await ctx.Client.GetInteractivity().WaitForModalAsync("RegPlayer");
-                DiscordMessageBuilder message = CreateUserCard(response, ctx);
-                await ctx.Channel.SendMessageAsync(message);
+                var response = await ctx.Client.GetInteractivity().WaitForModalAsync("ClanApplicationPanel");
+
+                DiscordMessageBuilder message = CreateUserCard(response, ctx);                
+                message.SendAsync(ctx.Guild.Channels.FirstOrDefault(chat => chat.Value.Name == "test2").Value);
 
                 //добавить кнопки да/нет для офицеров и спршаивать причину/когда собес в лс писать что-то
                 //добавить в канал вступления сообщение с кнопкой отправки заявки
             }
+            //[SlashCommand("Регистрация", "Игровой аккаунт")]
+            //public async Task RegPlayer(InteractionContext ctx)
+            //{
+            //    DiscordInteractionResponseBuilder builder = CreateClanApplicationPanel();
+            //    await ctx.Interaction.CreateResponseAsync(InteractionResponseType.Modal, builder);
+            //    var response = await ctx.Client.GetInteractivity().WaitForModalAsync("RegPlayer");
+            //    DiscordMessageBuilder message = CreateUserCard(response, ctx);
+            //    await ctx.Channel.SendMessageAsync(message);
+
+
+            //}
 
             private static DiscordMessageBuilder CreateUserCard(InteractivityResult<ModalSubmitEventArgs> response, InteractionContext ctx)
             {
@@ -145,13 +137,13 @@ namespace GOD_Assistant.Commands
                 messageBuilder.AddEmbed(embed);
                 messageBuilder.AddComponents(new DiscordComponent[]
                 {
-                    new DiscordButtonComponent(ButtonStyle.Success, "AcceptRequest","ᅠᅠᅠᅠᅠᅠᅠᅠ"),//, false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":white_check_mark:"))),
-                    new DiscordButtonComponent(ButtonStyle.Danger, "RefuseRequest","ᅠᅠᅠᅠᅠᅠᅠᅠ")//, false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":x:"))),
+                    new DiscordButtonComponent(ButtonStyle.Primary, "RequestPanel_AcceptRequest", "", false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":white_check_mark:"))),
+                    new DiscordButtonComponent(ButtonStyle.Primary, "RequestPanel_RefuseRequest"," ", false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":x:"))),
                 });
                 return messageBuilder;
             }
 
-            private static DiscordInteractionResponseBuilder CreateRequestPanel()
+            private static DiscordInteractionResponseBuilder CreateClanApplicationPanel()
             {
                 List<DiscordComponent> elements =
                        [
@@ -163,7 +155,7 @@ namespace GOD_Assistant.Commands
                        ];
 
                 DiscordInteractionResponseBuilder builder = new();
-                builder.WithCustomId("RegPlayer")
+                builder.WithCustomId("ClanApplicationPanel")
                        .WithTitle("Заявка в клан");
 
                 foreach (var el in elements)

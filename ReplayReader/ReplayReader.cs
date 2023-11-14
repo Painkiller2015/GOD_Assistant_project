@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using ReplayReader.Replay.Data;
 using System.Timers;
 
@@ -26,8 +27,7 @@ namespace ReplayReader
                 string resultData = binaryReader.ReadString();
 
                 replay = JsonConvert.DeserializeObject<MatchData>(matchData);
-
-
+                
 
                 //    //Console.WriteLine(TopDamage(replay, "Painkiller2015", OperatorClass.a, GameMode.hacking));
                 //    //Console.WriteLine(TopDamage(replay, "Painkiller2015", OperatorClass.g, GameMode.hacking));
@@ -79,9 +79,19 @@ namespace ReplayReader
             //    }
             //}
         }
+        public void GetAllText()
+        {
+            var dezerializerSettings = new JsonSerializerSettings
+            {
+                //ContractResolver = new DynamicMappingResolver(map)
+            };
+
+            //Console.WriteLine(JsonConvert.SerializeObject(replay, dezerializerSettings));
+        }
         public List<string> GetPlayersName()
         {
-            return replay.Users.Select(el => el.Nickname).ToList();
+            //  return replay.Users.Select(el => el.Nickname).ToList();
+            return null;
         }
     }
 }

@@ -18,8 +18,8 @@ namespace GOD_Assistant.Events
     {
         public static async Task Discord_GuildDownloadCompleted(DiscordClient sender, GuildDownloadCompletedEventArgs e)
         {
-            SyncData syncData = new(sender);
-            syncData.SyncGuildsUsers();
+            SyncData syncData = new();
+            syncData.SyncGuildsUsers(e.Guilds.Values.ToList());
         }
 
     }

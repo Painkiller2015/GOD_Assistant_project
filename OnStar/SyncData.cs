@@ -1,4 +1,6 @@
 ﻿using DSharpPlus;
+using DSharpPlus.Entities;
+using DSharpPlus.EventArgs;
 using GOD_Assistant.DB_Entity;
 using System;
 using System.Collections.Generic;
@@ -8,41 +10,44 @@ using System.Threading.Tasks;
 
 namespace GOD_Assistant.OnStar
 {
-    public class SyncData(DiscordClient discord)
+    public class SyncData()//DiscordClient discord
     {
-        private readonly DiscordClient discord = discord;
+        //private readonly DiscordClient discord = discord;
         private readonly DBConnect db = new();
-        public  void SyncAll()
-        {
-            SyncGuildsUsers();
-            SyncGuildsMessages();
-        }
-        public void SyncGuildsUsers()
-        {
-            AddNewUsers();
 
+        public void SyncGuildsUsers(List<DiscordGuild> guilds)
+        {
+            AddNewUsers(guilds);
             db.SaveChanges();
         }
 
-        private void AddNewUsers()
+        private void AddNewUsers(List<DiscordGuild> guildsId)
         {
-            foreach (var guild in discord.Guilds)
+            List<User> newUsers = new();
+            foreach (var guild in guildsId)
             {
-                foreach (var member in guild.Value.Members)
+                foreach (var member in guild.Members)
                 {
                     if (member.Value.IsBot)
                         continue;
 
-                    User newUser = new(member.Key, member.Value.GlobalName, member.Value.DisplayName);
-
-                    if (!db.Users.Any(user => user.DiscordID == newUser.DiscordID))
+                    User newUser = new()
                     {
-                        db.Users.Add(newUser);
+                        DiscordID = member.Value.Id,
+                        DiscordName = member.Value.GlobalName,
+                        ServerName = member.Value.DisplayName,
+                    };
+                    if (!newUsers.Any(user => user.DiscordID == newUser.DiscordID))
+                    {                        
+                        if (!db.Users.Any(user => user.DiscordID == newUser.DiscordID))
+                        {
+                            newUsers.Add(newUser);
+                            db.Users.Add(newUser);
+                        }
                     }
                 }
             }
         }
-
         public void SyncGuildsMessages()
         {
 

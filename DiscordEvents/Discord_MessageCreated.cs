@@ -10,7 +10,7 @@ namespace GOD_Assistant.Events
         {
             //await LogMessageCreate(e);
 
-            if (sender == null) { }
+//            if (sender == null) { }
 
         }
         private static async Task LogMessageCreate(MessageCreateEventArgs e)

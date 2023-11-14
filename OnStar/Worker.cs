@@ -71,8 +71,7 @@ namespace GOD_Assistant.OnStar
             discord.VoiceStateUpdated += DiscordEvents.Discord_VoiceStateUpdate;
             discord.ComponentInteractionCreated += DiscordEvents.Discord_ComponentInteractionCreated; // Подключение кнопок
             discord.ClientErrored += DiscordEvents.Discord_ClientErrored;
-            discord.ModalSubmitted += DiscordEvents.Discord_ModalSubmitted;
-            discord.ComponentInteractionCreated += DiscordEvents.Discord_ComponentInteractionCreated;
+            discord.ModalSubmitted += DiscordEvents.Discord_ModalSubmitted;            
             discord.GuildDownloadCompleted += DiscordEvents.Discord_GuildDownloadCompleted;
         }
         private void SubscribeToTimeEvents()

@@ -1,31 +1,31 @@
 ﻿using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
-using GOD_Assistant.DB_Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GOD_Assistant.DB_Entities;
 
 namespace GOD_Assistant.OnStar
 {
-    public class SyncData()//DiscordClient discord
+    public class SyncData()
     {
-        //private readonly DiscordClient discord = discord;
-        private readonly DBConnect db = new();
-
-        public void SyncGuildsUsers(List<DiscordGuild> guilds)
+        private readonly DBContext db = new();
+        public async Task SyncGuildsAsync(List<DiscordGuild> guilds)
         {
             AddNewUsers(guilds);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
+            await db.DisposeAsync();
         }
 
-        private void AddNewUsers(List<DiscordGuild> guildsId)
+        private void AddNewUsers(List<DiscordGuild> guilds)
         {
             List<User> newUsers = new();
-            foreach (var guild in guildsId)
+            List<User> preUsers;
+
+            foreach (var guild in guilds)
             {
+                preUsers = db.Users
+                  .Where(u => u.Guilds.Any(g => g.DiscordId == guild.Id))
+                  .ToList();
+
                 foreach (var member in guild.Members)
                 {
                     if (member.Value.IsBot)
@@ -33,24 +33,29 @@ namespace GOD_Assistant.OnStar
 
                     User newUser = new()
                     {
-                        DiscordID = member.Value.Id,
-                        DiscordName = member.Value.GlobalName,
+                        DiscordId = member.Value.Id,
                         ServerName = member.Value.DisplayName,
                     };
-                    if (!newUsers.Any(user => user.DiscordID == newUser.DiscordID))
-                    {                        
-                        if (!db.Users.Any(user => user.DiscordID == newUser.DiscordID))
+                    if (!newUsers.Any(user => user.DiscordId == newUser.DiscordId))
+                    {
+                        if (!preUsers.Any(user => user.DiscordId == newUser.DiscordId)) 
                         {
+                            Guild? currGuild = db.Guilds.FirstOrDefault(g => g.DiscordId == guild.Id);
+                            if (currGuild == null)
+                            {
+                                currGuild = new();
+                                currGuild.DiscordId = guild.Id;
+                                currGuild.Name = guild.Name;
+                            }
+                            newUser.Guilds.Add(currGuild);
+
                             newUsers.Add(newUser);
                             db.Users.Add(newUser);
                         }
                     }
                 }
             }
-        }
-        public void SyncGuildsMessages()
-        {
-
-        }
+        }    
+        
     }
 }

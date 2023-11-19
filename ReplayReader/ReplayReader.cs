@@ -42,7 +42,7 @@ namespace ReplayReader
 
             //вынести коэфициент смерти
 
-            //(Нанесённый урон - (количество смертей * 50)) / количество раундов = результат.
+            //Нанесённый урон - (количество смертей * 50)) / количество раундов = результат. победа обязательна
             //    static string TopDamage(Replay replay, string playerNickName, OperatorClass @class, GameMode gameMode)
             //    {
             //        string mode = replay.Log.Data.GameMode;

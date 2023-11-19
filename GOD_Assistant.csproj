@@ -14,21 +14,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-01839" />
-    <PackageReference Include="DSharpPlus.CommandsNext" Version="5.0.0-nightly-01839" />
-    <PackageReference Include="DSharpPlus.Interactivity" Version="5.0.0-nightly-01839" />
-    <PackageReference Include="DSharpPlus.Lavalink" Version="5.0.0-nightly-01839" />
-    <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-01839" />
-    <PackageReference Include="DSharpPlus.VoiceNext" Version="5.0.0-nightly-01839" />
-    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.0-rc.2.23480.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-rc.2.23480.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0-rc.2.23480.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="8.0.0-rc.2.23480.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0-rc.2.23480.1">
+    <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="DSharpPlus.CommandsNext" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="DSharpPlus.Interactivity" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="DSharpPlus.Lavalink" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="DSharpPlus.VoiceNext" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.2.23479.6" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

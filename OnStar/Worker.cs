@@ -3,15 +3,12 @@ using Microsoft.Extensions.Hosting;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
-using GOD_Assistant.Commands;
-using static GOD_Assistant.Commands.MainCommand;
+using GOD_Assistant.BotCommands;
 using Microsoft.Extensions.DependencyInjection;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using GOD_Assistant.Config;
 using GOD_Assistant.Events;
-
-
 
 namespace GOD_Assistant.OnStar
 {
@@ -50,7 +47,7 @@ namespace GOD_Assistant.OnStar
 
             interactivity = discord.UseInteractivity(new InteractivityConfiguration()
             {
-                Timeout = TimeSpan.FromSeconds(30)
+                Timeout = TimeSpan.FromSeconds(60)
             });
         }
 
@@ -61,7 +58,7 @@ namespace GOD_Assistant.OnStar
                 StringPrefixes = new[] { prefix }
             });
 
-            commands.RegisterCommands<MainCommand>();
+            commands.RegisterCommands<Commands>();
             discord.UseSlashCommands().RegisterCommands<SlashCommands>();
         }
         private void SubscribeToDiscordEvents()
@@ -73,15 +70,23 @@ namespace GOD_Assistant.OnStar
             discord.ClientErrored += DiscordEvents.Discord_ClientErrored;
             discord.ModalSubmitted += DiscordEvents.Discord_ModalSubmitted;            
             discord.GuildDownloadCompleted += DiscordEvents.Discord_GuildDownloadCompleted;
+            
+            //discord.GuildMemberAdded
+            //discord.GuildRoleDeleted
+            //discord.GuildRoleUpdated
+            //discord.GuildRoleCreated
+
+
         }
         private void SubscribeToTimeEvents()
         {
             System.Timers.Timer aTimer = new();
             int interval60Minutes = 60 * 60 * 1000;
+    
             aTimer.Interval = interval60Minutes;
 
             aTimer.Elapsed += TimeEvents.Time_TopDamageResult;
-            aTimer.Elapsed += TimeEvents.Time_CommunityActiveResult;
+            aTimer.Elapsed += async (sender, e) => await TimeEvents.Time_CommunityActiveResultAsync(sender, e, discord);
 
             aTimer.AutoReset = true;
             aTimer.Enabled = true;

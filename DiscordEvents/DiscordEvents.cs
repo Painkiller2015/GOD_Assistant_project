@@ -1,7 +1,7 @@
 ﻿using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
-using GOD_Assistant.DB_Entity;
+using GOD_Assistant.DB_Entities;
 using GOD_Assistant.DiscordObject;
 using System;
 using System.Collections.Generic;

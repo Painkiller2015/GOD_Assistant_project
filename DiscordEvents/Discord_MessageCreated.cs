@@ -1,6 +1,6 @@
 ﻿using DSharpPlus.EventArgs;
 using DSharpPlus;
-using GOD_Assistant.DB_Entity;
+using GOD_Assistant.DB_Entities;
 
 namespace GOD_Assistant.Events
 {
@@ -8,32 +8,40 @@ namespace GOD_Assistant.Events
     {
         public static async Task Discord_MessageCreated(DiscordClient sender, MessageCreateEventArgs e)
         {
-            //await LogMessageCreate(e);
-
-//            if (sender == null) { }
+            await LogMessageCreate(e);
 
         }
         private static async Task LogMessageCreate(MessageCreateEventArgs e)
         {
-            DBConnect connect = new();
+            DBContext connect = new();
+
+            if (e.Message.Author.IsBot)
+                return;
+
             ChatLog logRecord = new()
             {
-                MessageDiscordId = e.Message.Id,
-                GuildId = connect.Guilds.Single(guild => guild.DiscordID == e.Guild.Id).Id,
+                DiscordId = e.Message.Id,
+                Guild = connect.Guilds.First(guild => guild.DiscordId == e.Guild.Id),
                 ChatDiscordId = e.Message.ChannelId,
                 Message = e.Message.Content,
-                UserId = connect.Users.Single(user => user.DiscordID == e.Author.Id).Id,
-                Timestamp = e.Message.Timestamp.Ticks
-            };
+                User = connect.Users.First(user => user.DiscordId == e.Author.Id),
+                Date = e.Message.Timestamp.DateTime
+            };            
             if (e.Message.Attachments.Any())
             {
-                logRecord.HasAttachment = true;
+                logRecord.HasAttachment = true;                                                              
                 foreach (var attachment in e.Message.Attachments)
                 {
-                    connect.Attachments.Add(new Attachment(e.Message.Id, attachment.MediaType, attachment.Url));
+                    Attachment attach = new()
+                    {
+                        Type = attachment.MediaType,
+                        Url = attachment.Url,
+                        MessageId = logRecord.Id
+                    };  
+                    await connect.Attachments.AddAsync(attach);
                 }
             }
-            await connect.AddAsync(logRecord);
+            connect.Add(logRecord);
             await connect.SaveChangesAsync();
         }
     }

@@ -1,10 +1,4 @@
 ﻿using DSharpPlus.Entities;
-using DSharpPlus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GOD_Assistant.DiscordObject
 {
@@ -14,8 +8,8 @@ namespace GOD_Assistant.DiscordObject
         public DiscordMessage DMessage { get; set; }
         public bool deleteFlag { get; set; }
         public int deleteTime { get; set; } = 5;
-        public Dictionary<string, Stream> files = null;        
-        public bool MentionsAll = true;        
+        public Dictionary<string, Stream> files = null;
+        public bool MentionsAll = true;
         public DiscordSelectComponent SelMenu; //сделать приватным                        
         public Message()
         {

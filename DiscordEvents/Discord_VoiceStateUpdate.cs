@@ -1,10 +1,5 @@
-﻿using DSharpPlus.EventArgs;
-using DSharpPlus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DSharpPlus;
+using DSharpPlus.EventArgs;
 using GOD_Assistant.DB_Entities;
 
 namespace GOD_Assistant.Events
@@ -38,9 +33,9 @@ namespace GOD_Assistant.Events
                     {
                         voice.DateTimeExit = DateTime.Now;
                         await dbContext.SaveChangesAsync();
-                    }                                      
+                    }
                 }
             }
-        }       
+        }
     }
 }

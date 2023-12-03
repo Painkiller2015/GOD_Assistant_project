@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReplayReader.Replay.Data.Replay.Entitys
+﻿namespace ReplayReader.Replay.Data.Replay.Entitys
 {
-    using System;
-    using System.Collections.Generic;
-
     public static class Visuals
     {
         public enum Ability : byte

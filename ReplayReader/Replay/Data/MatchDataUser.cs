@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Configs;
 using ReplayReader.Replay.Data.Replay.Entitys;
 using System.Runtime.CompilerServices;
@@ -112,7 +111,7 @@ namespace ReplayReader.Replay.Data.Replay.Data
     }
     public class UserbarGroupConfig : ConfigDictionary<UserbarGroupConfig>, IConfigDisablable
     {
-        
+
         public UserbarVisualizationLogic VisualizationLogic;
 
         [JsonProperty(ItemConverterType = typeof(ConfigRefConverter<UserbarConfig>))]

@@ -1,14 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Data;
 using ReplayReader.Replay.Data.Replay.Entitys;
 using ReplayReader.Replay.Data.Replay.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {
@@ -39,11 +33,11 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool fullProgression;
 
-        
+
         public ShopItemQuality quality;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        
+
         public ShopItemCategory category;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -58,7 +52,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         [JsonConverter(typeof(ConfigDictionaryConverter<ShopEntryConfig, int>))]
         public Dictionary<ShopEntryConfig, int> childShopItems;
 
-        
+
         public ShopItemType itemType;
 
         public readonly List<Money> price;
@@ -83,7 +77,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool suspendable;
 
-        
+
         public AcquisitionType acquisitionType;
 
         public string acquisitionVisual;
@@ -164,7 +158,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         [JsonIgnore]
         public bool LootBoxBuyLimit => false;
 
-        bool IConfigDisablable.EnabledInGame { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }       
+        bool IConfigDisablable.EnabledInGame { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
     public enum AcquisitionType
     {
@@ -237,7 +231,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
     }
     public class HqStyleConfig : ConfigDictionary<HqStyleConfig>, IConfigDisablable
     {
-        
+
         public Visuals.HqStyles Visual;
 
         [JsonIgnore]
@@ -298,7 +292,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
     }
     public class FireworkGroupConfig : ConfigDictionary<FireworkGroupConfig>
     {
-        
+
         public FireworkLogic Logic;
 
         public int EmptyDelaySeconds;

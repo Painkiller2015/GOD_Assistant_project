@@ -1,5 +1,5 @@
-﻿using DSharpPlus.EventArgs;
-using DSharpPlus;
+﻿using DSharpPlus;
+using DSharpPlus.EventArgs;
 using GOD_Assistant.DB_Entities;
 
 namespace GOD_Assistant.Events
@@ -26,10 +26,10 @@ namespace GOD_Assistant.Events
                 Message = e.Message.Content,
                 User = connect.Users.First(user => user.DiscordId == e.Author.Id),
                 Date = e.Message.Timestamp.DateTime
-            };            
+            };
             if (e.Message.Attachments.Any())
             {
-                logRecord.HasAttachment = true;                                                              
+                logRecord.HasAttachment = true;
                 foreach (var attachment in e.Message.Attachments)
                 {
                     Attachment attach = new()
@@ -37,7 +37,7 @@ namespace GOD_Assistant.Events
                         Type = attachment.MediaType,
                         Url = attachment.Url,
                         MessageId = logRecord.Id
-                    };  
+                    };
                     await connect.Attachments.AddAsync(attach);
                 }
             }

@@ -1,11 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReplayReader.Replay.Data.Replay.Entitys
+﻿namespace ReplayReader.Replay.Data.Replay.Entitys
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class JsonFilterAttribute : Attribute

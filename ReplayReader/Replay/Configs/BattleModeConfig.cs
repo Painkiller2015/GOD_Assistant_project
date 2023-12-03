@@ -172,7 +172,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
             return false;
         }
     }
-    
+
     public enum BattleModeStatus
     {
         Enabled = 0,
@@ -187,7 +187,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         PvPvE = 3,
         PvPvE2 = 4
     }
-    
+
     public enum UserRatingType
     {
         None = 0,

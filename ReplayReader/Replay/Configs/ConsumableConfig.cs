@@ -1,10 +1,5 @@
-﻿using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Entitys;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
@@ -19,7 +14,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         [JsonProperty("activeAbility")]
         public EquipmentItemConfig.EquipmentItemConfigOption ActiveAbility;
 
-        
+
         public ConsumableType ConsumableType;
 
         [JsonProperty(ItemConverterType = typeof(StringEnumConverter))]

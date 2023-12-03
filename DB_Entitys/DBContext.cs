@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace GOD_Assistant.DB_Entities;
 
@@ -109,7 +107,7 @@ public partial class DBContext : DbContext
         {
             entity.HasIndex(e => e.Id, "IX_Roles_Id").IsUnique();
             entity.HasOne(d => d.Guild).WithMany(p => p.Roles)
-               .HasForeignKey(d => d.GuildId)               
+               .HasForeignKey(d => d.GuildId)
                .OnDelete(DeleteBehavior.Cascade);
         });
         modelBuilder.Entity<Guild>(entity =>
@@ -117,7 +115,7 @@ public partial class DBContext : DbContext
             entity.HasIndex(e => e.Id, "IX_Guilds_Id").IsUnique();
 
             entity.Property(e => e.DiscordId).HasColumnName("DiscordId");
-        
+
         });
         modelBuilder.Entity<User>(entity =>
         {
@@ -148,7 +146,7 @@ public partial class DBContext : DbContext
                         j.ToTable("User_Player");
                     });
         });
-        
+
         modelBuilder.Entity<UserRole>(entity =>
         {
             entity.HasKey(e => new { e.RoleId, e.UserId, e.GuildId });

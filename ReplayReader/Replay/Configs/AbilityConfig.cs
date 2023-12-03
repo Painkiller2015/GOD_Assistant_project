@@ -1,8 +1,8 @@
 ﻿
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Runtime.CompilerServices;
+using Newtonsoft.Json.Linq;
 using ReplayReader.Replay.Data.Replay.Entitys;
+using System.Runtime.CompilerServices;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {

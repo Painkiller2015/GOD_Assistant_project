@@ -1,10 +1,5 @@
-﻿using DSharpPlus.EventArgs;
-using DSharpPlus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DSharpPlus;
+using DSharpPlus.EventArgs;
 using GOD_Assistant.DB_Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +17,7 @@ namespace GOD_Assistant.Events
                 {
                     a.Result.IsDeleted = true;
                     await dBContext.SaveChangesAsync();
-                }                
+                }
             }
         }
     }

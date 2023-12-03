@@ -1,14 +1,4 @@
-﻿
-
-
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using ReplayReader.Replay.Data.Replay.Entitys;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
@@ -24,11 +14,11 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         [JsonProperty("typeLocalesKey")]
         public string TypeLocalesKey;
 
-        
+
         [JsonProperty("slot")]
         public SlotType Slot;
 
-        
+
         [JsonProperty("unlockableSlot")]
         public SlotType UnlockableSlot;
 
@@ -37,14 +27,14 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         public Visuals.Module ModuleType;
 
         [JsonProperty("soundUpgrade", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        
+
         public SoundUpgradeType SoundUpgrade;
 
-        
+
         [JsonProperty("bulletVisualOverride", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Visuals.BulletType BulletVisualOverride;
 
-        
+
         [JsonProperty("attachment")]
         public ItemUpgradeAttachment Attachment;
 

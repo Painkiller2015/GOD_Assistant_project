@@ -1,13 +1,7 @@
 ﻿
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Configs;
 using ReplayReader.Replay.Data.Replay.Entitys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReplayReader.Replay.Data.Replay.Data
 {
@@ -89,7 +83,7 @@ namespace ReplayReader.Replay.Data.Replay.Data
 
         public string visual;
 
-        
+
         public CustomAnimationType type;
 
         [JsonIgnore]

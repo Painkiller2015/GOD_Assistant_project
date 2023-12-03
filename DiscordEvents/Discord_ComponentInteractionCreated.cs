@@ -1,23 +1,21 @@
-﻿using DSharpPlus.EventArgs;
-using DSharpPlus;
+﻿using DSharpPlus;
 using DSharpPlus.Entities;
+using DSharpPlus.EventArgs;
 using DSharpPlus.Interactivity.Extensions;
 using GOD_Assistant.DB_Entities;
-using GOD_Assistant.BotCommands;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GOD_Assistant.Events
 {
     static partial class DiscordEvents
     {
         public static async Task Discord_ComponentInteractionCreated(DiscordClient sender, ComponentInteractionCreateEventArgs e)
-        {                               
+        {
             if (e.Interaction.Data.CustomId.Split('_')[0] == "RequestPanel")
             {
-                using DBContext dbContext = new();                                
+                using DBContext dbContext = new();
                 ClanApplication application = dbContext.ClanApplications.Find(Convert.ToInt32(e.Message.Embeds[0].Footer.Text));
                 dbContext.Entry(application).Reference(app => app.User).Load();
-                await WorkWithClanApplication(sender, e, application.User.DiscordId);                
+                await WorkWithClanApplication(sender, e, application.User.DiscordId);
             }
             else if (e.Interaction.Data.CustomId.Split('_')[0] == "SetPlayerAccount")
             {
@@ -29,9 +27,9 @@ namespace GOD_Assistant.Events
             else if (e.Interaction.Data.CustomId == "ClanApplicationReset")
             {
                 await RestoreClanApplication(sender, e);
-            }           
+            }
         }
-     
+
         private static async Task RestoreClanApplication(DiscordClient sender, ComponentInteractionCreateEventArgs e)
         {
             DiscordMessageBuilder builder = new(e.Message);
@@ -81,7 +79,7 @@ namespace GOD_Assistant.Events
                             //string nickName = e.Message.Content.Split(" ").Last();
                             //await AddPlayerInUser(e.Message.Embeds[0].Footer.Text, nickName);
 
-                            await e.Guild.Channels.First(c => c.Value.Name == "test3").Value.SendMessageAsync($"<@{newClanMember.Id}>  в общем чате!");                                                                                    
+                            await e.Guild.Channels.First(c => c.Value.Name == "test3").Value.SendMessageAsync($"<@{newClanMember.Id}>  в общем чате!");
                             await newClanMember.SendMessageAsync("Вы приняты в клан Ghost Of Destruction!");
 
                             discordEmbed = new DiscordEmbedBuilder().WithTitle("Участник принят!")
@@ -100,8 +98,8 @@ namespace GOD_Assistant.Events
 
                         DiscordMember refClanMember = e.Guild.Members.First(user => user.Value.Id == idRequester).Value;
 
-                        if (response.Result.Values["NegativeReason"] != null)                        
-                            await refClanMember.SendMessageAsync($"Здравствуйте! \n К сожалению ваша заявка на вступление отклонена по причине: \n {response.Result.Values["NegativeReason"]}");                                                
+                        if (response.Result.Values["NegativeReason"] != null)
+                            await refClanMember.SendMessageAsync($"Здравствуйте! \n К сожалению ваша заявка на вступление отклонена по причине: \n {response.Result.Values["NegativeReason"]}");
                         break;
                     default:
                         await e.Interaction.CreateResponseAsync(InteractionResponseType.DeferredMessageUpdate);
@@ -109,7 +107,7 @@ namespace GOD_Assistant.Events
                 }
             }
             DiscordMessageBuilder builder = new(e.Message);
-            builder.ClearComponents();            
+            builder.ClearComponents();
             builder.AddComponents(new DiscordButtonComponent(ButtonStyle.Success, "ClanApplicationReset", "Reset"));
             await e.Message.ModifyAsync(builder);
         }
@@ -123,11 +121,11 @@ namespace GOD_Assistant.Events
                     string nickName = $"{e.Id}"; //e.Message.Content.Split(" ").Last();DEBUG
 
                     await AddPlayerInUser(e.Message.Embeds[0].Footer.Text, nickName);
-                    await UpdateApplication(e.Message.Embeds[0].Footer.Text, e.User.Id, true);                                                   
+                    await UpdateApplication(e.Message.Embeds[0].Footer.Text, e.User.Id, true);
                     discordEmbed = new DiscordEmbedBuilder().WithTitle("Аккаунт присвоен!")
                                                                             .WithColor(DiscordColor.Green)
                                                                             .Build();
-                 
+
                     res.AddEmbed(discordEmbed).AsEphemeral();
                     await e.Interaction.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, res);
                     break;
@@ -139,7 +137,7 @@ namespace GOD_Assistant.Events
                     await UpdateApplication(e.Message.Embeds[0].Footer.Text, e.User.Id, false, response.Result.Values["NegativeReason"]);
 
                     DiscordMember refClanMember = e.Guild.Members.First(user => user.Value.Id == idRequester).Value;
-                 
+
                     if (response.Result.Values["NegativeReason"] != null)
                         await refClanMember.SendMessageAsync($"Здравствуйте! \nК сожалению ваша заявка на привязку игрового аккаунта отклонена по причине: \n{response.Result.Values["NegativeReason"]}");
                     break;
@@ -168,13 +166,13 @@ namespace GOD_Assistant.Events
         }
         private static async Task UpdateApplication(string appId, ulong respondentId, bool answer, string reason = null)
         {
-            using DBContext DB = new();            
+            using DBContext DB = new();
             ClanApplication app = DB.ClanApplications.First(app => app.Id == Convert.ToInt32(appId));
             app.RespondentId = DB.Users.First(user => user.DiscordId == respondentId).Id;
             app.AnswerDate = DateTime.Now;
             app.Answer = answer;
             app.Reason ??= reason;
-                                    
+
             await DB.SaveChangesAsync();
         }
         private static async Task AddPlayerInUser(string userId, string NickName)

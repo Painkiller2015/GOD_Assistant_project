@@ -1,14 +1,8 @@
 ﻿
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using ReplayReader.Replay.Data.Replay.Entitys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {
@@ -32,23 +26,23 @@ namespace ReplayReader.Replay.Data.Replay.Configs
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public bool secondFireModeOnHold;
 
-            
+
             public SlotType slot;
 
             [JsonProperty("linked_visual_slot")]
-            
+
             public SlotType? linkedVisualSlot;
 
-            
+
             public WeaponSpeciality speciality;
 
-            
+
             public ExplosiveWeaponSubtype explosiveWeaponSubtype;
 
-            
+
             public EquipmentItemType itemType;
 
-            
+
             public WeaponStrategyType strategyType;
 
             public string fxType;

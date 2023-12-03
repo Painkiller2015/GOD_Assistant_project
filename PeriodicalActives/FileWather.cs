@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.FileSystemGlobbing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GOD_Assistant.PeriodicalActives
+﻿namespace GOD_Assistant.PeriodicalActives
 {
     public static class FileWatcher
     {
@@ -16,7 +9,7 @@ namespace GOD_Assistant.PeriodicalActives
             _Watcher = new FileSystemWatcher(@".\PeriodicalActives\", "*.json");
 
             _Watcher.NotifyFilter = NotifyFilters.LastWrite;
-            _Watcher.EnableRaisingEvents = true;            
+            _Watcher.EnableRaisingEvents = true;
 
             //SubscribeToFile(SomeMethod, "PeriodicalActivesSettings.json");
         }
@@ -31,7 +24,7 @@ namespace GOD_Assistant.PeriodicalActives
             if (_doubleCall)
             {
                 Console.WriteLine("double?");
-            }                
+            }
         }
 
 

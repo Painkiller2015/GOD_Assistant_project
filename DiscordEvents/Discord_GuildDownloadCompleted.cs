@@ -1,6 +1,5 @@
-﻿using DSharpPlus.EventArgs;
-using DSharpPlus;
-
+﻿using DSharpPlus;
+using DSharpPlus.EventArgs;
 using GOD_Assistant.OnStar;
 
 namespace GOD_Assistant.Events

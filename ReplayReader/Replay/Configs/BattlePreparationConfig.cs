@@ -1,12 +1,6 @@
 ﻿
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Entitys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {
@@ -83,7 +77,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
 
         public bool IsRequired => false;
     }
-    
+
     public enum LobbyStageType : byte
     {
         None = 0,

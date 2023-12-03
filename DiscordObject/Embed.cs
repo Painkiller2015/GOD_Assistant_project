@@ -1,13 +1,4 @@
-﻿using DSharpPlus.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using static DSharpPlus.Entities.DiscordEmbedBuilder;
-
-namespace GOD_Assistant.DiscordObject
+﻿namespace GOD_Assistant.DiscordObject
 {
     //public static class Embed
     //{

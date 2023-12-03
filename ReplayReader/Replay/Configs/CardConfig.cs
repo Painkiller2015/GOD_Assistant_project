@@ -3,12 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Entitys;
 using ReplayReader.Replay.Data.Replay.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {
@@ -188,7 +183,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         //    ((ConfigDictionary<>)(object)this)._002Ector();
         //}
     }
-    
+
     public enum PlayerRole
     {
         None = -1,

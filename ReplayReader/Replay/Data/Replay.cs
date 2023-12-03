@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ReplayReader.Replay.Data.Replay.Log;
+﻿using ReplayReader.Replay.Data.Replay.Log;
 
 
 namespace ReplayReader.Replay.Data

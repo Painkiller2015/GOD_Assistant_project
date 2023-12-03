@@ -1,10 +1,4 @@
-﻿using GOD_Assistant.Config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 using System.Timers;
 
 namespace GOD_Assistant.PeriodicalActives
@@ -14,7 +8,7 @@ namespace GOD_Assistant.PeriodicalActives
         public PeriodicalFunctionParam Parameters { get; private set; }
         public PeriodicalFunction()
         {
-                           
+
         }
         public void GetSettings()
         {

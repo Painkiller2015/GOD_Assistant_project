@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GOD_Assistant.DB_Entities;
 [PrimaryKey(nameof(GuildId), nameof(UserId), nameof(RoleId))]

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ReplayReader.Replay.Data.Replay.Configs;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using ReplayReader.Replay.Data.Replay.Configs;
 
 namespace ReplayReader.Replay.Data.Replay.Entitys
 {

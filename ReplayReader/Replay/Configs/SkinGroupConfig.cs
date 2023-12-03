@@ -1,12 +1,4 @@
-﻿
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using ReplayReader.Replay.Data.Replay.Entitys;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
@@ -15,7 +7,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
     {
         public string visual;
 
-        
+
         public SkinGroupType type;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -34,7 +26,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
     }
     public class SkinConfig : ConfigDictionary<SkinConfig>
     {
-        
+
         public SlotType slot;
 
         public string visual;

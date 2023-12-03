@@ -1,14 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Data.Replay.Utils;
-using System.Runtime.CompilerServices;
 using ReplayReader.Replay.Data.Replay.Data;
 using ReplayReader.Replay.Data.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Utils;
+using System.Runtime.CompilerServices;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {
@@ -187,7 +182,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         {
             public string visual;
 
-            
+
             public QuestTrigger Trigger;
 
             public float Count;
@@ -406,7 +401,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public TimeSpan LastPlayerKillTime;
         }
-        
+
         public enum BotArchetype
         {
             None = 0,

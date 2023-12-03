@@ -1,11 +1,4 @@
-﻿
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using ReplayReader.Replay.Data.Replay.Entitys;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
@@ -22,7 +15,7 @@ namespace ReplayReader.Replay.Data.Replay.Configs
         public bool enabled;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        
+
         public QuestGroup group;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

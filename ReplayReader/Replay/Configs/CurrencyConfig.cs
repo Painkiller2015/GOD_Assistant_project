@@ -1,21 +1,14 @@
 ﻿
-using Newtonsoft.Json.Converters;
 using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json.Converters;
 using ReplayReader.Replay.Data.Replay.Data;
 using ReplayReader.Replay.Data.Replay.Entitys;
 
 namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class CurrencyConfig : ConfigDictionary<CurrencyConfig>
-    { 
-        
+    {
+
         public CurrencyGroup Group;
 
         public string Visual;

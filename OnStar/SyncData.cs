@@ -1,6 +1,4 @@
-﻿using DSharpPlus;
-using DSharpPlus.Entities;
-using DSharpPlus.EventArgs;
+﻿using DSharpPlus.Entities;
 using GOD_Assistant.DB_Entities;
 
 namespace GOD_Assistant.OnStar
@@ -38,7 +36,7 @@ namespace GOD_Assistant.OnStar
                     };
                     if (!newUsers.Any(user => user.DiscordId == newUser.DiscordId))
                     {
-                        if (!preUsers.Any(user => user.DiscordId == newUser.DiscordId)) 
+                        if (!preUsers.Any(user => user.DiscordId == newUser.DiscordId))
                         {
                             Guild? currGuild = db.Guilds.FirstOrDefault(g => g.DiscordId == guild.Id);
                             if (currGuild == null)
@@ -55,7 +53,7 @@ namespace GOD_Assistant.OnStar
                     }
                 }
             }
-        }    
-        
+        }
+
     }
 }

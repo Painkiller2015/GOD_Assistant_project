@@ -1,11 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using ReplayReader.Replay.Data;
-using ReplayReader.Replay.Data.Replay.Entitys;
-using ReplayReader.Replay.Data.Replay.Log;
-using System.Collections;
-using System.Diagnostics.CodeAnalysis;
-using System.Timers;
+using GameData.Replay.Data;
 
 namespace ReplayReader
 {
@@ -32,21 +26,8 @@ namespace ReplayReader
                 string fullData = binaryReader.ReadString();
 
                 replay = JsonConvert.DeserializeObject<BattleResult>(fullData);
-
             }
         }
-
-        //private static void SetJSONSettings()
-        //{
-        //    JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-        //    {
-        //        Converters = new List<JsonConverter>
-        //        {
-        //            new DictionaryNumericEnumKeysConverter()
-        //        }
-        //    };
-        //}
-
     }
 }
 

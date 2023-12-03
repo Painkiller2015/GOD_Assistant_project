@@ -1,11 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GOD_Assistant.DB_Entities;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json.Linq;
-using GOD_Assistant.PeriodicalActives;
-using System.Text;
-using static System.Net.Mime.MediaTypeNames;
-using GOD_Assistant.DB_Entities;
-using System;
+using static GameData.Replay.Data.Replay.Entitys.Visuals;
+
 
 namespace GOD_Assistant.OnStar
 {
@@ -13,8 +10,8 @@ namespace GOD_Assistant.OnStar
     {
         static void Main(string[] args)
         {
-            //Test();
-            CreateHostBuilder(args).Build().Run();
+            Test();
+            //CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
@@ -28,11 +25,32 @@ namespace GOD_Assistant.OnStar
         }
         private static void Test()
         {
-            using DBContext db = new();
-                var users = db.Users
-                .Where(u => u.Guilds.Any(g => g.DiscordId == 1009863965569974392))
-                .ToList(); 
-            Console.WriteLine(users.Count);
+            GameData.Utilits.InsertOperators();
+
+            foreach (HumanCoreConfigType item in Enum.GetValues(typeof(HumanCoreConfigType)))
+            {
+                Console.WriteLine($"int: {(int)item}, str: {item}");
+            }
+
+
+            //var options1 = new JsonSerializerOptions
+            //{
+            //    Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+            //    WriteIndented = true
+            //};
+
+            //string json = "";
+
+            //var a = JsonSerializer.Serialize(json, options1);
+            //Console.WriteLine(a);
+
+            //ReplayReader.ReplayReader replayReader = new(@"C:\Users\Volos\AppData\LocalLow\1CGS\Caliber\Replays\b9aa4174-4fec-416f-bed0-3a33966f895b_2061_2023-12-02_04-04-38_11332_000.bytes");
+
+            //using DBContext db = new();
+            //    var users = db.Users
+            //    .Where(u => u.Guilds.Any(g => g.DiscordId == 1009863965569974392))
+            //    .ToList(); 
+            //Console.WriteLine(users.Count);
 
             //    //419063111165804555 //1161632736835031111
             //    var a = dbContext.Guilds.Single(guild => guild.DiscordId == 1161632736835031111);

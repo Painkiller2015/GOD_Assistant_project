@@ -15,9 +15,13 @@ namespace GOD_Assistant.BotCommands
         [Command("T1")]
         public async Task Test1(CommandContext ctx)
         {
+  
+              
+          
             Console.WriteLine("tut1");
         }
     }
+
     [SlashCommandGroup("GOD", "GOD_SlashCommands")]
     public class SlashCommands : ApplicationCommandModule
     {

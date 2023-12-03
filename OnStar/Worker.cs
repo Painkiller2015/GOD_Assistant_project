@@ -1,14 +1,13 @@
-﻿using System.Timers;
-using Microsoft.Extensions.Hosting;
-using DSharpPlus;
+﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
-using GOD_Assistant.BotCommands;
-using Microsoft.Extensions.DependencyInjection;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
+using GOD_Assistant.BotCommands;
 using GOD_Assistant.Config;
 using GOD_Assistant.Events;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace GOD_Assistant.OnStar
 {
@@ -23,7 +22,7 @@ namespace GOD_Assistant.OnStar
             InitDiscordBot();
             SubscribeToDiscordEvents();
             SubscribeToTimeEvents();
-            discord.ConnectAsync();            
+            discord.ConnectAsync();
         }
         private DiscordClient InitDiscordBot()
         {
@@ -68,9 +67,9 @@ namespace GOD_Assistant.OnStar
             discord.VoiceStateUpdated += DiscordEvents.Discord_VoiceStateUpdate;
             discord.ComponentInteractionCreated += DiscordEvents.Discord_ComponentInteractionCreated; // Подключение кнопок
             discord.ClientErrored += DiscordEvents.Discord_ClientErrored;
-            discord.ModalSubmitted += DiscordEvents.Discord_ModalSubmitted;            
+            discord.ModalSubmitted += DiscordEvents.Discord_ModalSubmitted;
             discord.GuildDownloadCompleted += DiscordEvents.Discord_GuildDownloadCompleted;
-            
+
             //discord.GuildMemberAdded
             //discord.GuildRoleDeleted
             //discord.GuildRoleUpdated
@@ -82,10 +81,11 @@ namespace GOD_Assistant.OnStar
         {
             System.Timers.Timer aTimer = new();
             int interval60Minutes = 60 * 60 * 1000;
-    
+
             aTimer.Interval = interval60Minutes;
 
             aTimer.Elapsed += TimeEvents.Time_TopDamageResult;
+
             aTimer.Elapsed += async (sender, e) => await TimeEvents.Time_CommunityActiveResultAsync(sender, e, discord);
 
             aTimer.AutoReset = true;
@@ -98,6 +98,6 @@ namespace GOD_Assistant.OnStar
             {
                 await Task.Delay(60 * 60 * 1000, stoppingToken);
             }
-        }       
+        }
     }
 }

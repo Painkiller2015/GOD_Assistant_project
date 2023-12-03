@@ -14,12 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-01892" />
-    <PackageReference Include="DSharpPlus.CommandsNext" Version="5.0.0-nightly-01892" />
-    <PackageReference Include="DSharpPlus.Interactivity" Version="5.0.0-nightly-01892" />
-    <PackageReference Include="DSharpPlus.Lavalink" Version="5.0.0-nightly-01892" />
-    <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-01892" />
-    <PackageReference Include="DSharpPlus.VoiceNext" Version="5.0.0-nightly-01892" />
+    <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-01907" />
+    <PackageReference Include="DSharpPlus.CommandsNext" Version="5.0.0-nightly-01907" />
+    <PackageReference Include="DSharpPlus.Interactivity" Version="5.0.0-nightly-01907" />
+    <PackageReference Include="DSharpPlus.Lavalink" Version="5.0.0-nightly-01907" />
+    <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-01907" />
+    <PackageReference Include="DSharpPlus.VoiceNext" Version="5.0.0-nightly-01907" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />

@@ -1,9 +1,9 @@
 ﻿
 
 using Newtonsoft.Json;
-using ReplayReader.Replay.Configs;
+using ReplayReader.Replay.Data.Replay.Configs;
 
-namespace ReplayReader.Replay.Entitys
+namespace ReplayReader.Replay.Data.Replay.Entitys
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class ComplexQuestDataChapter

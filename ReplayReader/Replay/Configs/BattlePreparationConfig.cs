@@ -1,14 +1,14 @@
 ﻿
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class BattlePreparationConfig : ConfigDictionary<BattlePreparationConfig>
     {
@@ -83,7 +83,7 @@ namespace ReplayReader.Replay.Configs
 
         public bool IsRequired => false;
     }
-    [JsonConverter(typeof(StringEnumConverter))]
+    
     public enum LobbyStageType : byte
     {
         None = 0,

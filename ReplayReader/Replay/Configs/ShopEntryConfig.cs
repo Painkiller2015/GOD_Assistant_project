@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Data;
-using ReplayReader.Replay.Entitys;
-using ReplayReader.Replay.Utils;
+using ReplayReader.Replay.Data.Replay.Data;
+using ReplayReader.Replay.Data.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class ShopEntryConfig : ConfigDictionary<ShopEntryConfig>, IConfigDisablable
     {
@@ -39,11 +39,11 @@ namespace ReplayReader.Replay.Configs
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool fullProgression;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public ShopItemQuality quality;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public ShopItemCategory category;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -58,7 +58,7 @@ namespace ReplayReader.Replay.Configs
         [JsonConverter(typeof(ConfigDictionaryConverter<ShopEntryConfig, int>))]
         public Dictionary<ShopEntryConfig, int> childShopItems;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public ShopItemType itemType;
 
         public readonly List<Money> price;
@@ -83,7 +83,7 @@ namespace ReplayReader.Replay.Configs
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool suspendable;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public AcquisitionType acquisitionType;
 
         public string acquisitionVisual;
@@ -164,92 +164,7 @@ namespace ReplayReader.Replay.Configs
         [JsonIgnore]
         public bool LootBoxBuyLimit => false;
 
-        bool IConfigDisablable.EnabledInGame { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public static void Initialize()
-        {
-        }
-
-        public static bool TryGetPieceEntryByReward(Reward reward, out ShopEntryConfig shopEntryConfig)
-        {
-            shopEntryConfig = null;
-            return false;
-        }
-
-        public static bool TryGetPieceProgressByCurrency(ShopEntryConfig entry, int amount, out int value, out int target)
-        {
-            value = default;
-            target = default;
-            return false;
-        }
-
-        public static bool TryGetPieceProgressByCurrency(Reward reward, out int value, out int target)
-        {
-            value = default;
-            target = default;
-            return false;
-        }
-
-        public static bool TryGetPieceEntryByCurrency(CurrencyConfig currency, out ShopEntryConfig shopEntryConfig)
-        {
-            shopEntryConfig = null;
-            return false;
-        }
-
-        public static List<ShopEntryConfig> FindShopChildsEntries(ShopEntryConfig serverShopData)
-        {
-            return null;
-        }
-
-        public static ShopEntryConfig Get(ShopItemType type, string itemId, CardConfig linkedCard = null)
-        {
-            return null;
-        }
-
-        public static int GetShopEntryIndex(ShopEntryKey key)
-        {
-            return 0;
-        }
-
-        public static ShopEntryConfig GetSkinSetBySkinGroup(ShopEntryConfig entry)
-        {
-            return null;
-        }
-
-        public static int GetLegendarySkinGroupCount(CardConfig config)
-        {
-            return 0;
-        }
-
-        public static HashSet<ShopEntryConfig> GetShopEntriesByType(ShopItemType type)
-        {
-            return null;
-        }
-
-        public static ShopEntryConfig GetShopEntryIdByCurrency(CurrencyConfig config)
-        {
-            return null;
-        }
-
-        public static Dictionary<ShopEntryConfig, int> GetShopEntriesByType(Reward reward)
-        {
-            return null;
-        }
-
-        public static List<ShopEntryConfig> FindShopPacksByEntry(ShopEntryConfig serverShopData)
-        {
-            return null;
-        }
-
-        //public ShopEntryConfig()
-        //{
-        //    ((ConfigDictionary<>)(object)this)._002Ector();
-        //}
-
-        //public ShopEntryConfig(string id)
-        //{
-        //    ((ConfigDictionary<>)(object)this)._002Ector();
-        //}
+        bool IConfigDisablable.EnabledInGame { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }       
     }
     public enum AcquisitionType
     {
@@ -322,7 +237,7 @@ namespace ReplayReader.Replay.Configs
     }
     public class HqStyleConfig : ConfigDictionary<HqStyleConfig>, IConfigDisablable
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public Visuals.HqStyles Visual;
 
         [JsonIgnore]
@@ -383,7 +298,7 @@ namespace ReplayReader.Replay.Configs
     }
     public class FireworkGroupConfig : ConfigDictionary<FireworkGroupConfig>
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public FireworkLogic Logic;
 
         public int EmptyDelaySeconds;

@@ -1,13 +1,13 @@
 ﻿
 using Newtonsoft.Json;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class TechnologyConfig : ConfigDictionary<TechnologyConfig>
     {

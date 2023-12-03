@@ -1,15 +1,15 @@
 ﻿
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Configs;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Configs;
+using ReplayReader.Replay.Data.Replay.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Data
+namespace ReplayReader.Replay.Data.Replay.Data
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class CardData
@@ -89,7 +89,7 @@ namespace ReplayReader.Replay.Data
 
         public string visual;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public CustomAnimationType type;
 
         [JsonIgnore]

@@ -1,8 +1,8 @@
 ﻿
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Entitys;
-using ReplayReader.Replay.Utils;
+using ReplayReader.Replay.Data.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class CardConfig : ConfigDictionary<CardConfig>, IConfigDisablable
     {
@@ -188,7 +188,7 @@ namespace ReplayReader.Replay.Configs
         //    ((ConfigDictionary<>)(object)this)._002Ector();
         //}
     }
-    [JsonConverter(typeof(StringEnumConverter))]
+    
     public enum PlayerRole
     {
         None = -1,

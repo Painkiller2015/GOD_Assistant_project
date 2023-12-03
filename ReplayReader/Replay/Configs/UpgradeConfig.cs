@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class UpgradeConfig : ConfigDictionary<UpgradeConfig>
     {
@@ -24,11 +24,11 @@ namespace ReplayReader.Replay.Configs
         [JsonProperty("typeLocalesKey")]
         public string TypeLocalesKey;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         [JsonProperty("slot")]
         public SlotType Slot;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         [JsonProperty("unlockableSlot")]
         public SlotType UnlockableSlot;
 
@@ -37,14 +37,14 @@ namespace ReplayReader.Replay.Configs
         public Visuals.Module ModuleType;
 
         [JsonProperty("soundUpgrade", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public SoundUpgradeType SoundUpgrade;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         [JsonProperty("bulletVisualOverride", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Visuals.BulletType BulletVisualOverride;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         [JsonProperty("attachment")]
         public ItemUpgradeAttachment Attachment;
 

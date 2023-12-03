@@ -1,15 +1,10 @@
 ﻿
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class AbilityConfig : ConfigDictionary<AbilityConfig>, IConfigRaw
     {

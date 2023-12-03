@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class ComplexQuestConfig : ConfigDictionary<ComplexQuestConfig>, IRotatableQuest
     {
@@ -22,7 +22,7 @@ namespace ReplayReader.Replay.Configs
         public bool enabled;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public QuestGroup group;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

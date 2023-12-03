@@ -1,17 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Entitys;
-using ReplayReader.Replay.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
-    public class BattleModeConfig : ConfigDictionary<BattleModeConfig>
+    public class BattleModeConfig : Entitys.ConfigDictionary<BattleModeConfig>
     {
         public static int MaxMapCount;
 
@@ -155,39 +149,6 @@ namespace ReplayReader.Replay.Configs
 
         [JsonIgnore]
         public bool HasCollectionsRestrictions => false;
-
-        public static void Initialize()
-        {
-        }
-
-        public CondMatchType? GetCondMatchType()
-        {
-            return null;
-        }
-
-        public bool IsAllowedCollection(CollectionConfig collection)
-        {
-            return false;
-        }
-
-        public bool IsNotRestrictedCollection(CollectionConfig collection)
-        {
-            return false;
-        }
-
-        public bool IsCompatibilityCollection(CollectionConfig collection)
-        {
-            return false;
-        }
-
-        public static void Validate()
-        {
-        }
-
-        //public BattleModeConfig()
-        //{
-        //    ((ConfigDictionary<>)(object)this)._002Ector();
-        //}
     }
     public class BattleModeConfigBracket
     {
@@ -211,7 +172,7 @@ namespace ReplayReader.Replay.Configs
             return false;
         }
     }
-    [JsonConverter(typeof(StringEnumConverter))]
+    
     public enum BattleModeStatus
     {
         Enabled = 0,
@@ -226,7 +187,7 @@ namespace ReplayReader.Replay.Configs
         PvPvE = 3,
         PvPvE2 = 4
     }
-    [JsonConverter(typeof(StringEnumConverter))]
+    
     public enum UserRatingType
     {
         None = 0,
@@ -235,7 +196,7 @@ namespace ReplayReader.Replay.Configs
         PvEHard = 3,
         PvPRanked = 4
     }
-    [GenerateJs]
+    [Utils.GenerateJs]
     public enum CondMatchType
     {
         PVP = 0,

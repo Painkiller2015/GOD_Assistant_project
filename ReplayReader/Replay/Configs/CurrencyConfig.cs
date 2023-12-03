@@ -8,14 +8,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using ReplayReader.Replay.Data;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Data;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
-    public class CurrencyConfig : ConfigDictionary<CurrencyConfig>, IConfigPeriodic, IConfigDisablable
-    {
-        [JsonConverter(typeof(StringEnumConverter))]
+    public class CurrencyConfig : ConfigDictionary<CurrencyConfig>
+    { 
+        
         public CurrencyGroup Group;
 
         public string Visual;
@@ -42,171 +42,32 @@ namespace ReplayReader.Replay.Configs
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public float ConvertRatePremium;
 
-        [JsonConverter(typeof(ConfigRefConverter<CurrencyConfig>))]
+        //[JsonConverter(typeof(ConfigRefConverter<CurrencyConfig>))]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public CurrencyConfig ConvertCurrency;
 
-        [JsonIgnore]
-        public ShopEntryConfig ShopEntry;
+        public static CurrencyConfig hc;
 
-        [JsonIgnore]
-        public ConsumableConfig ConsumableConfig;
+        public static CurrencyConfig sc;
 
-        public static CurrencyConfig hc
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
+        public static CurrencyConfig tokens;
 
-        public static CurrencyConfig sc
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
+        public static CurrencyConfig tickets;
 
-        public static CurrencyConfig tokens
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
+        public static CurrencyConfig freexp;
 
-        public static CurrencyConfig tickets
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
+        public static CurrencyConfig Refund;
 
-        public static CurrencyConfig freexp
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
+        public static CurrencyConfig cardLevelSwitchToken;
 
-        public static CurrencyConfig Refund
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
-
-        public static CurrencyConfig cardLevelSwitchToken
-        {
-            [CompilerGenerated]
-            get
-            {
-                return null;
-            }
-            [CompilerGenerated]
-            private set
-            {
-            }
-        }
-
-        public bool EnabledInGame
-        {
-            [CompilerGenerated]
-            get
-            {
-                return false;
-            }
-            [CompilerGenerated]
-            set
-            {
-            }
-        }
+        public bool EnabledInGame;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public DateTime StartDate
-        {
-            [CompilerGenerated]
-            get
-            {
-                return default;
-            }
-            [CompilerGenerated]
-            set
-            {
-            }
-        }
+        public DateTime StartDate;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public DateTime EndDate
-        {
-            [CompilerGenerated]
-            get
-            {
-                return default;
-            }
-            [CompilerGenerated]
-            set
-            {
-            }
-        }
+        public DateTime EndDate;
 
-        public static void Prepare()
-        {
-        }
-
-        public bool IsActive(DateTime onDate)
-        {
-            return false;
-        }
-
-        public static bool IsActive(CurrencyConfig currency, DateTime onDate)
-        {
-            return false;
-        }
-
-        public bool IsOutdated(DateTime onDate)
-        {
-            return false;
-        }
-
-        //public CurrencyConfig()
-        //{
-        //    ((ConfigDictionary<>)(object)this)._002Ector();
-        //}
     }
     public enum CurrencyGroup
     {

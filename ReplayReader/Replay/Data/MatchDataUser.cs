@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Configs;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Configs;
+using ReplayReader.Replay.Data.Replay.Entitys;
 using System.Runtime.CompilerServices;
-using static ReplayReader.Replay.Entitys.Visuals;
+using static ReplayReader.Replay.Data.Replay.Entitys.Visuals;
 
 
-namespace ReplayReader.Replay.Data
+namespace ReplayReader.Replay.Data.Replay.Data
 {
     public class MatchDataUser
     {
@@ -112,7 +112,7 @@ namespace ReplayReader.Replay.Data
     }
     public class UserbarGroupConfig : ConfigDictionary<UserbarGroupConfig>, IConfigDisablable
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public UserbarVisualizationLogic VisualizationLogic;
 
         [JsonProperty(ItemConverterType = typeof(ConfigRefConverter<UserbarConfig>))]

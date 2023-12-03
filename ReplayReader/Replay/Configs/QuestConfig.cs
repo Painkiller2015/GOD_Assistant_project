@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Converters;
-using ReplayReader.Replay.Utils;
+using ReplayReader.Replay.Data.Replay.Utils;
 using System.Runtime.CompilerServices;
-using ReplayReader.Replay.Data;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Data;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public interface IRotatableQuest
     {
@@ -187,7 +187,7 @@ namespace ReplayReader.Replay.Configs
         {
             public string visual;
 
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public QuestTrigger Trigger;
 
             public float Count;
@@ -406,7 +406,7 @@ namespace ReplayReader.Replay.Configs
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public TimeSpan LastPlayerKillTime;
         }
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public enum BotArchetype
         {
             None = 0,

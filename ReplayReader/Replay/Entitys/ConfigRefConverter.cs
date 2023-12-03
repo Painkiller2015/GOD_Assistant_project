@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace ReplayReader.Replay.Entitys
+namespace ReplayReader.Replay.Data.Replay.Entitys
 {
     public class ConfigRefConverter<T> : JsonConverter where T : ConfigDictionary<T>, new()
     {

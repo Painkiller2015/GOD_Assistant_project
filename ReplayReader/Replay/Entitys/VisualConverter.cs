@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Entitys
+namespace ReplayReader.Replay.Data.Replay.Entitys
 {
     public class VisualConverter<T> : JsonConverter where T : Enum
     {

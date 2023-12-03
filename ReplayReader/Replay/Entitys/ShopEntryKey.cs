@@ -4,9 +4,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using ReplayReader.Replay.Configs;
+using ReplayReader.Replay.Data.Replay.Configs;
 
-namespace ReplayReader.Replay.Entitys
+namespace ReplayReader.Replay.Data.Replay.Entitys
 {
     public readonly struct ShopEntryKey : IEquatable<ShopEntryKey>
     {

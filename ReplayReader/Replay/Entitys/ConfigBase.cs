@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 
-namespace ReplayReader.Replay.Entitys
+namespace ReplayReader.Replay.Data.Replay.Entitys
 {
     public class ConfigBase
     {

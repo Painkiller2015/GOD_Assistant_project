@@ -1,6 +1,6 @@
 ﻿
 using Newtonsoft.Json;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class CardProgressLineConfig : ConfigDictionary<CardProgressLineConfig>, IConfigDisablable
     {

@@ -1,37 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace ReplayReader.Replay.Data
+namespace ReplayReader.Replay.Data.Replay.Data
 {
-    public class ReplayHeaderData
-    {
-        //public int ModelVersion;
-
-        //public string SharedVersion;
-
-        //public string BuildVersionLabel;
-
-        public MatchData MatchData;
-
-        //public long PlayerMetaId;
-
-        //public long StartTick;
-
-        //public long StopTick;
-
-        //public int Size;
-
-        //public string ResultString;
-
-        //public float ReplayDurationSeconds;
-
-        //public DateTime ReplayCreateTime;
-
-        //public float DurationSeconds => 0f;
-
-        //public long DurationTick => 0L;
-
-    }
     public class MatchData
     {
         [JsonProperty(PropertyName = "0")]

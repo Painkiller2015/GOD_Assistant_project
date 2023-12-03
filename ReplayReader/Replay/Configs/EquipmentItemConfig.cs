@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class EquipmentItemConfig : ConfigDictionary<EquipmentItemConfig>
     {
@@ -32,23 +32,23 @@ namespace ReplayReader.Replay.Configs
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public bool secondFireModeOnHold;
 
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public SlotType slot;
 
             [JsonProperty("linked_visual_slot")]
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public SlotType? linkedVisualSlot;
 
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public WeaponSpeciality speciality;
 
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public ExplosiveWeaponSubtype explosiveWeaponSubtype;
 
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public EquipmentItemType itemType;
 
-            [JsonConverter(typeof(StringEnumConverter))]
+            
             public WeaponStrategyType strategyType;
 
             public string fxType;

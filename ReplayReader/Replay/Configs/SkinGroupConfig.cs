@@ -7,15 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReplayReader.Replay.Entitys;
+using ReplayReader.Replay.Data.Replay.Entitys;
 
-namespace ReplayReader.Replay.Configs
+namespace ReplayReader.Replay.Data.Replay.Configs
 {
     public class SkinGroupConfig : ConfigDictionary<SkinGroupConfig>
     {
         public string visual;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public SkinGroupType type;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -34,7 +34,7 @@ namespace ReplayReader.Replay.Configs
     }
     public class SkinConfig : ConfigDictionary<SkinConfig>
     {
-        [JsonConverter(typeof(StringEnumConverter))]
+        
         public SlotType slot;
 
         public string visual;

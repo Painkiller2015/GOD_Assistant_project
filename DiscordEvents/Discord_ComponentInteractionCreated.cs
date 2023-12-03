@@ -79,7 +79,7 @@ namespace GOD_Assistant.Events
                             await RenameUser(e);
 
                             //string nickName = e.Message.Content.Split(" ").Last();
-                            await AddPlayerInUser(e.Message.Embeds[0].Footer.Text, nickName);
+                            //await AddPlayerInUser(e.Message.Embeds[0].Footer.Text, nickName);
 
                             await e.Guild.Channels.First(c => c.Value.Name == "test3").Value.SendMessageAsync($"<@{newClanMember.Id}>  в общем чате!");                                                                                    
                             await newClanMember.SendMessageAsync("Вы приняты в клан Ghost Of Destruction!");

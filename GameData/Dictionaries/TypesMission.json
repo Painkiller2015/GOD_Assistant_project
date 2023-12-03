@@ -1,0 +1,14 @@
+{
+  "polygon": "Полигон",
+  "pve": "Зачистка",
+  "pvehard": "Спецоперация",
+  "pvp": "Столкновение",
+  "hacking": "Взлом",
+  "pvpve": "Фронт",
+  "pvpve2": "Рубеж" , 
+  "pvpranked": "Ранговый бой",
+  "onboarding": "Онбординг",
+  "pvpdestruction": "Уничтожение",
+  "onslaughtnormal": "Натиск.Ветеран",
+  "onslaughthard": "Натиск.Легенда"
+}
